@@ -3,7 +3,7 @@
 
 Desarrollado por _**Cristhian Mamani Chura**_
 
-> API Sistema de autenticacion con el framework de Laravel 10 - Sanctum
+> Pequeño Sistema API de autenticacion usando el framework de Laravel 10 y Sanctum
 
 ## Contactos
 
