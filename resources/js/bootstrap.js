@@ -3,11 +3,47 @@
  * to our Laravel back-end. This library automatically handles sending the
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
+import { BASE_URL, BASE_URL_API } from './helpers/config';
+import { renderLayouts } from './layouts/RenderLayouts';
 
+//AXIOS
 import axios from 'axios';
 window.axios = axios;
+window.axios.defaults.baseURL = BASE_URL_API;
+// window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+//VUEJS
+import { createApp } from 'vue';
+import App from './App.vue';
+
+//ROUTER
+import router from './router';
+window.router = router;
+
+//PINIA
+import { createPinia } from 'pinia';
+import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
+
+const pinia  = createPinia();
+pinia.use(piniaPluginPersistedstate);
+pinia.use(({ store }) => {
+    store.router = markRaw(router);
+});
+
+
+const app = createApp(App);
+app.use(router);
+app.use(pinia);
+app.mount("#app");
+
+renderLayouts(app);
+
+
+
+
+
+
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
