@@ -6,15 +6,22 @@
 import { BASE_URL, BASE_URL_API } from './helpers/config';
 import { renderLayouts } from './layouts/RenderLayouts';
 
+
 //AXIOS
 import axios from 'axios';
 window.axios = axios;
 window.axios.defaults.baseURL = BASE_URL_API;
-// window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.defaults.headers.common['Accept'] = 'application/json';
+window.axios.defaults.headers.common['Content-Type'] = 'application/json';
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.defaults.withCredentials = true;
+
+
+
 
 
 //VUEJS
-import { createApp } from 'vue';
+import { createApp, markRaw } from 'vue';
 import App from './App.vue';
 
 //ROUTER
@@ -26,10 +33,11 @@ import { createPinia } from 'pinia';
 import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
 
 const pinia  = createPinia();
-pinia.use(piniaPluginPersistedstate);
 pinia.use(({ store }) => {
     store.router = markRaw(router);
 });
+pinia.use(piniaPluginPersistedstate);
+
 
 
 const app = createApp(App);
@@ -37,10 +45,21 @@ app.use(router);
 app.use(pinia);
 app.mount("#app");
 
+//render layout templates
 renderLayouts(app);
 
 
-
+//manejo de token
+import { useAuthStore } from './stores/auth';
+const authStore = useAuthStore();
+axios.interceptors.request.use((config) => {
+    const token = authStore.authToken;
+    if (token) {
+        config.headers["Authorization"] = `Bearer ${token}`;
+        // console.log(config);
+    }
+    return config;
+});
 
 
 

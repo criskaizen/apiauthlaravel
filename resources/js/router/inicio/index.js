@@ -14,7 +14,7 @@ export default [
         name: "register",
         component: () => import(/* webpackChunkName: "Register" */ "../../views/auth/Register.vue"),
         meta: {
-            layout: 'Dashboard',
+            layout: 'Default',
         }
     },
 ];

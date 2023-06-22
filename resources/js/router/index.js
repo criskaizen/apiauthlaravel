@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import routes from "./routes";
-// import { useAuthStore } from "../stores/auth";
+import { useAuthStore } from "../stores/auth";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -11,14 +11,15 @@ const router = createRouter({
 
 
 //PROTECCION  DE RUTAS CON META
-/* router.beforeEach( (to, from, next) => {
-    const authStore = useAuthStore();
-    const isAuth = authStore.isAutenticated;
-    if((to.meta.requiresAuth) && (isAuth === false)){
-        next({ name: "login" });
-    } else {
-        next();
+router.beforeEach( async (to) => {
+    const publicPages = ['/', '/register'];
+    const authRequired = !publicPages.includes(to.path);
+    const auth = useAuthStore();
+    if(authRequired && !auth.user){
+        auth.returnUrl = to.fullPath;
+        return '/';
     }
-}); */
+})
+
 
 export default router;

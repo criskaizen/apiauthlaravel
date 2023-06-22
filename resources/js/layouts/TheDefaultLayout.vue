@@ -1,15 +1,18 @@
 <script lang="ts">
 import { defineComponent } from "vue";
-
+import Footer from "./DefaultLayout/Footer.vue";
 export default defineComponent({
     name: "TheDefaultLayout",
+    components: {
+        Footer
+    }
 });
 </script>
 
 <template>
-    <h1>header</h1>
-    <br />
+    <div class="auth-page-wrapper auth-bg-cover py-5 d-flex justify-content-center align-items-center min-vh-100">
+        <div class="bg-overlay"></div>
         <slot></slot>
-    <h1>footer</h1>
-    <br />
+        <Footer/>
+    </div>
 </template>
