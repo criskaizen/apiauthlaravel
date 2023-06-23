@@ -1,4 +1,5 @@
 <script setup>
+import { BASE_URL } from "@/helpers/config";
 import { bodyScript } from '@/helpers/load_script';
 import { onMounted, ref } from 'vue';
 onMounted( () => {
@@ -26,7 +27,7 @@ const form = ref({
                                     <div class="position-relative h-100 d-flex flex-column">
                                         <div class="mb-4">
                                             <a href="index.html" class="d-block">
-                                                <img src="assets/images/logo-light.png" alt="" height="18">
+                                                <img :src="BASE_URL+'assets/images/logo-light.png'" alt="" height="18">
                                             </a>
                                         </div>
                                         <div class="mt-auto">

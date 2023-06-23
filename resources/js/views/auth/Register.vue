@@ -1,4 +1,5 @@
 <script setup>
+import { BASE_URL } from "@/helpers/config";
 import { bodyScript, delScript } from '@/helpers/load_script';
 import { onMounted, ref } from 'vue';
 
@@ -40,7 +41,7 @@ const alert = () => {
                                     <div class="position-relative h-100 d-flex flex-column">
                                         <div class="mb-4">
                                             <router-link :to="{name:'login'}" class="d-block">
-                                                <img src="assets/images/logo-light.png" alt="" height="18">
+                                                <img :src="BASE_URL+'assets/images/logo-light.png'" alt="" height="18">
                                             </router-link>
                                         </div>
                                         <div class="mt-auto">
@@ -144,7 +145,6 @@ const alert = () => {
                                             <router-link :to="{name:'login'}" class="fw-semibold text-primary text-decoration-underline">Iniciar sesión</router-link>
                                         </p>
                                     </div>
-                                    <button type="submit" class="btn btn-primary btn-sm" @click="alert">Click me</button>
                                 </div>
                             </div>
                         </div>

@@ -5,7 +5,7 @@
  */
 import { BASE_URL, BASE_URL_API } from './helpers/config';
 import { renderLayouts } from './layouts/RenderLayouts';
-
+window.BASE_URL = BASE_URL;
 
 //AXIOS
 import axios from 'axios';
@@ -43,7 +43,7 @@ pinia.use(piniaPluginPersistedstate);
 const app = createApp(App);
 app.use(router);
 app.use(pinia);
-app.mount("#app");
+app.mount("#company_app");
 
 //render layout templates
 renderLayouts(app);
