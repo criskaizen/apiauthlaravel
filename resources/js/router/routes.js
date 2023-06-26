@@ -1,8 +1,13 @@
 import inicio from "./inicio";
-import departments from "./admin/departments";
-import employees from "./admin/employees";
+
+import panelprincipal from "./home/panelprincipal";
+import departments from "./home/departments";
+import employees from "./home/employees";
+
+
 const routes = [].concat(
     inicio,
+    panelprincipal,
     departments,
     employees
 );

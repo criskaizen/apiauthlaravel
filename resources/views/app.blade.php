@@ -43,6 +43,7 @@
     <!-- Sweet alert init js-->
     <script src="assets/js/pages/sweetalerts.init.js"></script>
 
+
     <!-- password-addon init -->
     {{-- <script src="assets/js/pages/password-addon.init.js"></script> --}}
     @vite('resources/js/app.js', 'build')

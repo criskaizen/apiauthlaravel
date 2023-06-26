@@ -19,7 +19,7 @@ router.beforeEach( async (to) => {
         auth.returnUrl = to.fullPath;
         return '/';
     }
-})
+});
 
 
 export default router;

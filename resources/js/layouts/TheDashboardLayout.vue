@@ -6,6 +6,8 @@ import FooterDash from "./DashboardLayout/FooterDash.vue";
 import NotificationModal from "./DashboardLayout/NotificationModalDash.vue";
 import ThemeSetting from "./DashboardLayout/ThemeSettingDash.vue";
 
+import LoaderFull from "../components/LoaderFull.vue";
+
 import { bodyScript } from "../helpers/load_script";
 
 export default defineComponent({
@@ -14,7 +16,8 @@ export default defineComponent({
         HeaderDash,
         MenuDash,
         FooterDash,
-        NotificationModal
+        NotificationModal,
+        LoaderFull
     },
     mounted() {
         // console.log("object is mounted");
@@ -43,15 +46,7 @@ export default defineComponent({
         <i class="ri-arrow-up-line"></i>
     </button>
     <!--end back-to-top-->
+    <LoaderFull/>
 
-    <!--preloader-->
-    <div id="preloader">
-        <div id="status">
-            <div class="spinner-border text-primary avatar-sm" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
-        </div>
-    </div>
 
-    <ThemeSetting/>
 </template>

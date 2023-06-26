@@ -23,7 +23,7 @@ export const useAuthStore = defineStore('auth', {
                 (resp) => {
                     this.authToken = resp.data.token;
                     this.authUser = resp.data.data;
-                    this.router.push('departments');
+                    this.router.push('panelprincipal');
                 }
             ).catch(
                 (errors) => {

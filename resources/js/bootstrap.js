@@ -16,9 +16,9 @@ window.axios.defaults.headers.common['Content-Type'] = 'application/json';
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 window.axios.defaults.withCredentials = true;
 
-
-
-
+//Global Components
+import Loader from './components/Loader.vue';
+import PageLayout from './components/PageLayout.vue';
 
 //VUEJS
 import { createApp, markRaw } from 'vue';
@@ -26,7 +26,7 @@ import App from './App.vue';
 
 //ROUTER
 import router from './router';
-window.router = router;
+window.$router = router;
 
 //PINIA
 import { createPinia } from 'pinia';
@@ -43,6 +43,8 @@ pinia.use(piniaPluginPersistedstate);
 const app = createApp(App);
 app.use(router);
 app.use(pinia);
+app.component("PageLayout", PageLayout);
+app.component("Loader", Loader);
 app.mount("#company_app");
 
 //render layout templates

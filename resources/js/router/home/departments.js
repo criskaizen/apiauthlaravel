@@ -2,7 +2,7 @@ export default [
     {
         path: "/departments",
         name: "departments",
-        component: () => import(/* webpackChunkName: "Index" */ "../../views/Departments/Index.vue"),
+        component: () => import(/* webpackChunkName: "Index" */ "../../views/home/Departments/Index.vue"),
         meta: {
             layout: 'Dashboard',
         }
@@ -10,7 +10,7 @@ export default [
     {
         path: "/edit/:id",
         name: "edit",
-        component: () => import(/* webpackChunkName: "Edit" */ "../../views/Departments/Edit.vue"),
+        component: () => import(/* webpackChunkName: "Edit" */ "../../views/home/Departments/Edit.vue"),
         meta: {
             layout: 'Dashboard',
         }
@@ -18,7 +18,7 @@ export default [
     {
         path: "/create",
         name: "create",
-        component: () => import(/* webpackChunkName: "Create" */ "../../views/Departments/Create.vue"),
+        component: () => import(/* webpackChunkName: "Create" */ "../../views/home/Departments/Create.vue"),
         meta: {
             layout: 'Dashboard',
         }
