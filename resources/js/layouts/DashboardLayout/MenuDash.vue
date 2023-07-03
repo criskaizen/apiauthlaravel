@@ -1,23 +1,30 @@
 <script setup>
 import { BASE_URL } from "@/helpers/config";
+import { onMounted } from "vue";
+import { bodyScript } from "../../helpers/load_script";
+onMounted(() => {
+    bodyScript('assets/js/sidebar-menu.js');
+    bodyScript('assets/js/icons/feather-icon/feather-icon.js');
+    bodyScript('assets/js/script.js');
 
+})
 const item_sidebar = {
     "data": [
         {
             "title": "Pagina Principal",
-            "icon": "ri-honour-line",
+            "icon": "home",
             "path": "/panelprincipal",
             "name_to": "panelprincipal"
         },
         {
             "title": "departments",
-            "icon": "ri-honour-line",
+            "icon": "airplay",
             "path": "/departments",
             "name_to": "departments"
         },
         {
             "title": "Employess",
-            "icon": "ri-honour-line",
+            "icon": "command",
             "path": "/employees",
             "name_to": "employees"
         }
@@ -25,106 +32,49 @@ const item_sidebar = {
 }
 </script>
 <template>
-    <div class="app-menu navbar-menu">
-        <!-- LOGO -->
-        <div class="navbar-brand-box">
-            <!-- Dark Logo-->
-            <a href="index.html" class="logo logo-dark">
-                <span class="logo-sm">
-                    <img :src="BASE_URL+'assets/images/logo-sm.png'" alt="" height="22" />
-                </span>
-                <span class="logo-lg">
-                    <img :src="BASE_URL+'assets/images/logo-dark.png'" alt="" height="17" />
-                </span>
+    <header class="main-nav">
+        <div class="sidebar-user text-center"><a class="setting-primary" href="javascript:void(0)"><i data-feather="settings"></i></a><img class="img-90 rounded-circle" src="assets/images/dashboard/1.png" alt="">
+            <div class="badge-bottom"><span class="badge badge-primary">New</span></div><a href="user-profile.html">
+                <h6 class="mt-3 f-14 f-w-600">Emay Walter</h6>
             </a>
-            <!-- Light Logo-->
-            <a href="index.html" class="logo logo-light">
-                <span class="logo-sm">
-                    <img :src="BASE_URL+'assets/images/logo-sm.png'" alt="" height="22" />
-                </span>
-                <span class="logo-lg">
-                    <img :src="BASE_URL+'assets/images/logo-light.png'" alt="" height="17" />
-                </span>
-            </a>
-            <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
-                id="vertical-hover">
-                <i class="ri-record-circle-line"></i>
-            </button>
+            <p class="mb-0 font-roboto">Human Resources Department</p>
+            <!-- <ul>
+                <li><span><span class="counter">19.8</span>k</span>
+                    <p>Follow</p>
+                </li>
+                <li><span>2 year</span>
+                    <p>Experince</p>
+                </li>
+                <li><span><span class="counter">95.2</span>k</span>
+                    <p>Follower </p>
+                </li>
+            </ul> -->
         </div>
+        <nav>
+            <div class="main-navbar">
+                <div class="left-arrow" id="left-arrow"><i data-feather="arrow-left"></i></div>
+                <div id="mainnav">
+                    <ul class="nav-menu custom-scrollbar">
+                        <li class="back-btn">
+                            <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
+                        </li>
 
-        <div id="scrollbar">
-            <div class="container-fluid">
-                <div id="two-column-menu"></div>
-
-                <ul class="navbar-nav" id="navbar-nav">
-                    <li class="menu-title"><span data-key="t-menu">Menu</span></li>
-
-                    <li v-for="({ title, icon, name_to }, index) in item_sidebar.data" :key="index" class="nav-item">
-                        <router-link class="nav-link" active-class="active" :to="{ name: name_to }" exact>
-                            <i :class="icon"></i>
-                            <span>{{ title }}</span>
-                        </router-link>
-                    </li>
-
-
-                    <!-- <li class="nav-item">
-                        <router-link class="nav-link menu-link" :class="$route.path == '/panelprincipal' ? 'active' : ''">
-                            <i class="ri-honour-line"></i>
-                            <span data-key="t-widgets">Panel Principal</span>
-                        </router-link>
-                    </li> -->
-
-
-                   <!--  <li class="nav-item">
-                        <a class="nav-link menu-link" href="#sidebarDashboards" data-bs-toggle="collapse"
-                            role="button" aria-expanded="false" aria-controls="sidebarDashboards">
-                            <i class="ri-dashboard-2-line"></i>
-                            <span data-key="t-dashboards">Dashboards</span>
-                        </a>
-                        <div class="collapse menu-dropdown" id="sidebarDashboards">
-                            <ul class="nav nav-sm flex-column">
-                                <li class="nav-item">
-                                    <a href="dashboard-analytics.html" class="nav-link" data-key="t-analytics">
-                                        Analytics
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="dashboard-crm.html" class="nav-link" data-key="t-crm">
-                                        CRM
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="index.html" class="nav-link" data-key="t-ecommerce">
-                                        Ecommerce
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="dashboard-crypto.html" class="nav-link" data-key="t-crypto">
-                                        Crypto
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="dashboard-projects.html" class="nav-link" data-key="t-projects">
-                                        Projects
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="dashboard-nft.html" class="nav-link" data-key="t-nft">
-                                        NFT</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="dashboard-job.html" class="nav-link"><span data-key="t-job">Job</span>
-                                        <span class="badge badge-pill bg-success" data-key="t-new">New</span></a>
-                                </li>
+                        <!-- <li class="dropdown"> <a class="nav-link menu-title" href="javascript:void(0)"><i data-feather="box"></i><span>Project </span></a>
+                            <ul class="nav-submenu menu-content">
+                                <li><a href="projects.html">Project List</a></li>
+                                <li><a href="projectcreate.html">Create new </a></li>
                             </ul>
-                        </div>
-                    </li> -->
+                        </li> -->
+                        <li v-for="({ title, icon, name_to}, index) in item_sidebar.data" :key="index" class="dropdown" >
+                            <router-link class="nav-link" active-class="active" :to="{ name: name_to }" exact>
+                                <i :data-feather="icon"></i>
+                                <span>{{ title }}</span>
+                            </router-link>
+                        </li>
 
-                </ul>
+                    </ul>
+                </div>
             </div>
-            <!-- Sidebar -->
-        </div>
-
-        <div class="sidebar-background"></div>
-    </div>
+        </nav>
+    </header>
 </template>

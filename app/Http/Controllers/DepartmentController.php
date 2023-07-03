@@ -12,7 +12,7 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        $departments = Department::all();
+        $departments = Department::orderBy('id','DESC')->get();
         return response()->json($departments);
     }
 

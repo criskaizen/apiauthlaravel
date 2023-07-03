@@ -1,18 +1,24 @@
 <script lang="ts">
 import { defineComponent } from "vue";
-import Footer from "./DefaultLayout/Footer.vue";
+// import Footer from "./DefaultLayout/Footer.vue";
+import LoaderFull from "../components/LoaderFull.vue";
+import { bodyScript } from "../helpers/load_script";
 export default defineComponent({
     name: "TheDefaultLayout",
     components: {
-        Footer
+        LoaderFull
+    },
+    mounted() {
+        // console.log("object is mounted");
+        // bodyScript('assets/js/script.js');
+        bodyScript('assets/js/script.js');
+        bodyScript('assets/js/sidebar-menu.js');
+        bodyScript('assets/js/icons/feather-icon/feather-icon.js');
     }
 });
 </script>
 
 <template>
-    <div class="auth-page-wrapper auth-bg-cover py-5 d-flex justify-content-center align-items-center min-vh-100">
-        <div class="bg-overlay"></div>
-        <slot></slot>
-        <Footer/>
-    </div>
+    <LoaderFull/>
+    <slot></slot>
 </template>

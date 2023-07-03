@@ -26,7 +26,7 @@ import App from './App.vue';
 
 //ROUTER
 import router from './router';
-window.$router = router;
+window.$route = router;
 
 //PINIA
 import { createPinia } from 'pinia';

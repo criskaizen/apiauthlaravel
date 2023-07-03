@@ -2,11 +2,9 @@
 </script>
 <template>
     <!--preloader-->
-    <div id="preloader">
-        <div id="status">
-            <div class="spinner-border text-primary avatar-sm" role="status">
-                <span class="visually-hidden">Cargando...</span>
-            </div>
+    <div class="loader-wrapper">
+        <div class="theme-loader">
+            <div class="loader-p"></div>
         </div>
     </div>
 </template>

@@ -1,135 +1,57 @@
 <script setup>
 </script>
 <template>
-    <PageLayout title="Pagina Principal" title_hijo="Pagina Principal">
+    <PageLayout title="Pagina Principal" title_padre="Home" title_hijo="Bienvenida"/>
+    <div class="container-fluid general-widget">
         <div class="row">
-            <div class="col-xxl-5">
-                <div class="d-flex flex-column h-100">
-                    <div class="row h-100">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-body p-0">
-                                    <div class="alert alert-warning border-0 rounded-0 m-0 d-flex align-items-center" role="alert">
-                                        <i data-feather="alert-triangle" class="text-warning me-2 icon-sm"></i>
-                                        <div class="flex-grow-1 text-truncate">
-                                            Your free trial expired in <b>17</b> days.
-                                        </div>
-                                        <div class="flex-shrink-0">
-                                            <a href="pages-pricing.html" class="text-reset text-decoration-underline"><b>Upgrade</b></a>
-                                        </div>
-                                    </div>
-
-                                    <div class="row align-items-end">
-                                        <div class="col-sm-8">
-                                            <div class="p-3">
-                                                <p class="fs-16 lh-base">Upgrade your plan from a <span class="fw-semibold">Free trial</span>, to ‘Premium Plan’ <i class="mdi mdi-arrow-right"></i></p>
-                                                <div class="mt-3">
-                                                    <a href="pages-pricing.html" class="btn btn-success">Upgrade Account!</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="px-3">
-                                                <img src="assets/images/user-illustarator-2.png" class="img-fluid" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> <!-- end card-body-->
-                            </div>
-                        </div> <!-- end col-->
-                    </div> <!-- end row-->
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="card card-animate">
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between">
-                                        <div>
-                                            <p class="fw-medium text-muted mb-0">Users</p>
-                                            <h2 class="mt-4 ff-secondary fw-semibold"><span class="counter-value" data-target="28.05">0</span>k</h2>
-                                            <p class="mb-0 text-muted"><span class="badge bg-light text-success mb-0"> <i class="ri-arrow-up-line align-middle"></i> 16.24 % </span> vs. previous month</p>
-                                        </div>
-                                        <div>
-                                            <div class="avatar-sm flex-shrink-0">
-                                                <span class="avatar-title bg-soft-info rounded-circle fs-2">
-                                                    <i data-feather="users" class="text-info"></i>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!-- end card body -->
-                            </div> <!-- end card-->
-                        </div> <!-- end col-->
-
-                        <div class="col-md-6">
-                            <div class="card card-animate">
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between">
-                                        <div>
-                                            <p class="fw-medium text-muted mb-0">Sessions</p>
-                                            <h2 class="mt-4 ff-secondary fw-semibold"><span class="counter-value" data-target="97.66">0</span>k</h2>
-                                            <p class="mb-0 text-muted"><span class="badge bg-light text-danger mb-0"> <i class="ri-arrow-down-line align-middle"></i> 3.96 % </span> vs. previous month</p>
-                                        </div>
-                                        <div>
-                                            <div class="avatar-sm flex-shrink-0">
-                                                <span class="avatar-title bg-soft-info rounded-circle fs-2">
-                                                    <i data-feather="activity" class="text-info"></i>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!-- end card body -->
-                            </div> <!-- end card-->
-                        </div> <!-- end col-->
-                    </div> <!-- end row-->
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="card card-animate">
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between">
-                                        <div>
-                                            <p class="fw-medium text-muted mb-0">Avg. Visit Duration</p>
-                                            <h2 class="mt-4 ff-secondary fw-semibold"><span class="counter-value" data-target="3">0</span>m
-                                                <span class="counter-value" data-target="40">0</span>sec
-                                            </h2>
-                                            <p class="mb-0 text-muted"><span class="badge bg-light text-danger mb-0"> <i class="ri-arrow-down-line align-middle"></i> 0.24 % </span> vs. previous month</p>
-                                        </div>
-                                        <div>
-                                            <div class="avatar-sm flex-shrink-0">
-                                                <span class="avatar-title bg-soft-info rounded-circle fs-2">
-                                                    <i data-feather="clock" class="text-info"></i>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!-- end card body -->
-                            </div> <!-- end card-->
-                        </div> <!-- end col-->
-
-                        <div class="col-md-6">
-                            <div class="card card-animate">
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between">
-                                        <div>
-                                            <p class="fw-medium text-muted mb-0">Bounce Rate</p>
-                                            <h2 class="mt-4 ff-secondary fw-semibold"><span class="counter-value" data-target="33.48">0</span>%</h2>
-                                            <p class="mb-0 text-muted"><span class="badge bg-light text-success mb-0"> <i class="ri-arrow-up-line align-middle"></i> 7.05 % </span> vs. previous month</p>
-                                        </div>
-                                        <div>
-                                            <div class="avatar-sm flex-shrink-0">
-                                                <span class="avatar-title bg-soft-info rounded-circle fs-2">
-                                                    <i data-feather="external-link" class="text-info"></i>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div><!-- end card body -->
-                            </div> <!-- end card-->
-                        </div> <!-- end col-->
-                    </div> <!-- end row-->
+            <div class="col-sm-6 col-xl-3 col-lg-6">
+              <div class="card o-hidden border-0">
+                <div class="bg-primary b-r-4 card-body">
+                  <div class="media static-top-widget">
+                    <div class="align-self-center text-center"><i data-feather="database"></i></div>
+                    <div class="media-body"><span class="m-0">Earnings</span>
+                      <h4 class="mb-0 counter">6659</h4><i class="icon-bg" data-feather="database"></i>
+                    </div>
+                  </div>
                 </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3 col-lg-6">
+              <div class="card o-hidden border-0">
+                <div class="bg-secondary b-r-4 card-body">
+                  <div class="media static-top-widget">
+                    <div class="align-self-center text-center"><i data-feather="shopping-bag"></i></div>
+                    <div class="media-body"><span class="m-0">Products</span>
+                      <h4 class="mb-0 counter">9856</h4><i class="icon-bg" data-feather="shopping-bag"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3 col-lg-6">
+              <div class="card o-hidden border-0">
+                <div class="bg-primary b-r-4 card-body">
+                  <div class="media static-top-widget">
+                    <div class="align-self-center text-center"><i data-feather="message-circle"></i></div>
+                    <div class="media-body"><span class="m-0">Messages</span>
+                      <h4 class="mb-0 counter">893</h4><i class="icon-bg" data-feather="message-circle"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3 col-lg-6">
+              <div class="card o-hidden border-0">
+                <div class="bg-primary b-r-4 card-body">
+                  <div class="media static-top-widget">
+                    <div class="align-self-center text-center"><i data-feather="user-plus"></i></div>
+                    <div class="media-body"><span class="m-0">New Use</span>
+                      <h4 class="mb-0 counter">4531</h4><i class="icon-bg" data-feather="user-plus"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
         </div>
-    </PageLayout>
+    </div>
 </template>

@@ -22,27 +22,27 @@ const getDepartment = () => {
 }
 
 const save = () => {
-    sendRequest('PUT', form.value, 'departments/'+id.value, '/departments');
-    form.value.name = '';
+    let resp = sendRequest('PUT', form.value, 'departments/'+id.value, '/departments');
+    if (resp) {
+        $route.push({ name: 'departments' });
+        form.value.name = '';
+    }
 }
 </script>
 <template>
-    <PageLayout title="Update deparment" title_padre="Departments" title_hijo="Update Department">
-        <div class="card">
-            <div class="card-body">
-                <form @submit.prevent="save">
-                    <div class="mb-3">
-                        <label class="form-label" for="product-title-input">Deparment Title</label>
-                        <input type="text" v-model="form.name" class="form-control" placeholder="Enter deparment title" required>
-                        <div class="invalid-feedback">Please Enter a product title.</div>
-                    </div>
-                    <div class="text-end mb-3">
-                        <button type="submit" class="btn btn-primary w-sm">Update Deparment</button>
-                    </div>
-                </form>
-
-            </div>
+    <PageLayout title="Update deparment" title_padre="Departments" title_hijo="Update Department"/>
+    <div class="card">
+        <div class="card-body">
+            <form @submit.prevent="save">
+                <div class="mb-3">
+                    <label class="form-label fw-bold">.: Deparment Title</label>
+                    <input class="form-control" v-model="form.name" type="text" placeholder="Enter deparment title" required>
+                </div>
+                <div class="text-end">
+                    <button class="btn btn-primary" type="submit">Update Deparment</button>
+                    <router-link type="button" :to="{ name: 'departments' }" class="btn btn-light">Cancel</router-link>
+                </div>
+            </form>
         </div>
-
-    </PageLayout>
+    </div>
 </template>
